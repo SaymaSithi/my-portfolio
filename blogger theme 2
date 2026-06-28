@@ -1,0 +1,124 @@
+
+1
+<?xml version="1.0" encoding="UTF-8" ?>
+2
+<!DOCTYPE html>
+3
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+4
+<head>
+5
+  <meta charset='UTF-8'/>
+6
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+7
+  
+8
+  <title><data:blog.pageTitle/></title>
+9
+  <b:include data='blog' name='all-head-content'/>
+10
+​
+11
+  <!-- SEO Meta Data -->
+12
+  <meta expr:content='data:blog.metaDescription' name='description'/>
+13
+  <meta content='CUMILLA' name='author'/>
+14
+  <meta content='index, follow' name='robots'/>
+15
+  
+16
+  <b:if cond='data:blog.pageType == &quot;index&quot;'>
+17
+    <meta expr:content='data:blog.title' property='og:title'/>
+18
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+19
+    <meta content='website' property='og:type'/>
+20
+    <meta expr:content='data:blog.homepageUrl' property='og:url'/>
+21
+  </b:if>
+22
+  
+23
+  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+24
+    <meta expr:content='data:post.title' property='og:title'/>
+25
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+26
+    <meta content='article' property='og:type'/>
+27
+    <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+28
+    <b:if cond='data:post.featuredImage'>
+29
+      <meta expr:content='data:post.featuredImage' property='og:image'/>
+30
+    </b:if>
+31
+    <script type='application/ld+json'>
+32
+    {
+33
+      &quot;@context&quot;: &quot;https://schema.org&quot;,
+34
+      &quot;@type&quot;: &quot;BlogPosting&quot;,
+35
+      &quot;headline&quot;: &quot;<data:post.title/>&quot;,
+36
+      &quot;datePublished&quot;: &quot;<data:post.date.iso/>&quot;,
+37
+      &quot;dateModified&quot;: &quot;<data:post.date.iso/>&quot;,
+38
+      &quot;author&quot;: { &quot;@type&quot;: &quot;Person&quot;, &quot;name&quot;: &quot;CUMILLA&quot; },
+39
+      &quot;publisher&quot;: { &quot;@type&quot;: &quot;Organization&quot;, &quot;name&quot;: &quot;<data:blog.title/>&quot; },
+40
+      &quot;url&quot;: &quot;<data:blog.canonicalUrl/>&quot;,
+41
+      &quot;description&quot;: &quot;<data:blog.metaDescription/>&quot;<b:if cond='data:post.featuredImage'>, &quot;image&quot;: &quot;<data:post.featuredImage/>&quot;</b:if>
+42
+    }
+43
+    </script>
+44
+  </b:if>
+45
+​
+46
+  <b:skin><![CDATA[
+47
+    /* BASIC RESET */
+48
+    *{margin:0;padding:0;box-sizing:border-box}
+49
+    body{
+50
+      font-family:'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+51
+      line-height:1.7;
+52
+      color:#1c1f4c;
+53
+      background:#edebd9;
+54
+      word-wrap:break-word;
+55
+      overflow-x:hidden;
+56
+    }
+57
+    a{color:#00848c;text-decoration:none;transition:0.3s}
+58
+    a:hover{color:#037272;text-decoration:underline}
+59
+    img{max-width:100%;height:auto;display:block}
+60
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+61
+​
+Template: Edit Template
